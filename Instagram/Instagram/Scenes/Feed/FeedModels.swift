@@ -16,6 +16,8 @@ enum FeedModels {
         var limit: Int = 10
         var items: [Post] = []
         
+        var isUpdatingLikeState: [String : Bool] = [:]
+        
         func reset() {
             self.isFetchingItems = false
             self.noMoreItems = false
@@ -29,30 +31,31 @@ enum FeedModels {
     class DisplayedItem: Identifiable, ObservableObject {
         let id: String
         
-        var userImageUrl: String?
-        var userImagePlaceholder: String?
-        var postImageUrl: String?
-        var postImagePlaceholder: String?
+        @Published var userImageUrl: String?
+        @Published var userImagePlaceholder: String?
+        @Published var postImageUrl: String?
+        @Published var postImagePlaceholder: String?
         @Published var likeCount: Int = 0
-        var commentCount: Int = 0
-        var shareCount: Int = 0
         
-        var username: String?
-        var caption: String?
-        var timeAgo: String?
+        @Published var username: String?
+        @Published var caption: String?
+        @Published var timeAgo: String?
         
-        init(id: String, userImageUrl: String? = nil, userImagePlaceholder: String? = nil, postImageUrl: String? = nil, postImagePlaceholder: String? = nil, likeCount: Int = 0, commentCount: Int = 0, shareCount: Int = 0, username: String? = nil, caption: String? = nil, timeAgo: String? = nil) {
+        @Published var isLiked: Bool = false
+        @Published var isUpdatingLikeState: Bool = false
+        
+        init(id: String, userImageUrl: String? = nil, userImagePlaceholder: String? = nil, postImageUrl: String? = nil, postImagePlaceholder: String? = nil, likeCount: Int = 0, username: String? = nil, caption: String? = nil, timeAgo: String? = nil, isLiked: Bool = false, isUpdatingLikeState: Bool = false) {
             self.id = id
             self.userImageUrl = userImageUrl
             self.userImagePlaceholder = userImagePlaceholder
             self.postImageUrl = postImageUrl
             self.postImagePlaceholder = postImagePlaceholder
             self.likeCount = likeCount
-            self.commentCount = commentCount
-            self.shareCount = shareCount
             self.username = username
             self.caption = caption
             self.timeAgo = timeAgo
+            self.isLiked = isLiked
+            self.isUpdatingLikeState = isUpdatingLikeState
         }
     }
     
@@ -84,17 +87,29 @@ enum FeedModels {
     
     struct Like {
         struct Request {
-            var item: DisplayedItem
+            var id: String
         }
         
         struct Response {
-            var item: DisplayedItem
+            var id: String
             var likeCount: Int
         }
         
         struct ViewModel {
-            var item: DisplayedItem
+            var id: String
             var likeCount: Int
+        }
+    }
+    
+    struct ItemLoadingState {
+        struct Response {
+            var id: String
+            var isLoading: Bool
+        }
+        
+        struct ViewModel {
+            var id: String
+            var isLoading: Bool
         }
     }
 }

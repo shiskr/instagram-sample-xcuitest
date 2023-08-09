@@ -19,7 +19,10 @@ protocol FeedPresentationLogic {
     func presentError(response: FeedModels.ErrorPresentation.Response)
     func presentRemoveError()
     
-    func presentSuccessDidLike(response: FeedModels.Like.Response)
+    func presentLikeLoadingState(response: FeedModels.ItemLoadingState.Response)
+    func presentSuccessDidSaveLike(response: FeedModels.Like.Response)
+    func presentSuccessDidRemoveLike(response: FeedModels.Like.Response)
+    
 }
 
 class FeedPresenter: FeedPresentationLogic {
@@ -56,8 +59,16 @@ class FeedPresenter: FeedPresentationLogic {
         self.displayer?.displayRemoveError()
     }
     
-    func presentSuccessDidLike(response: FeedModels.Like.Response) {
-        self.displayer?.displaySuccessDidLike(viewModel: FeedModels.Like.ViewModel(item: response.item, likeCount: 20))
+    func presentLikeLoadingState(response: FeedModels.ItemLoadingState.Response) {
+        self.displayer?.displayLikeLoadingState(viewModel: FeedModels.ItemLoadingState.ViewModel(id: response.id, isLoading: response.isLoading))
+    }
+    
+    func presentSuccessDidSaveLike(response: FeedModels.Like.Response) {
+        self.displayer?.displaySuccessDidSaveLike(viewModel: FeedModels.Like.ViewModel(id: response.id, likeCount: response.likeCount))
+    }
+    
+    func presentSuccessDidRemoveLike(response: FeedModels.Like.Response) {
+        self.displayer?.displaySuccessDidRemoveLike(viewModel: FeedModels.Like.ViewModel(id: response.id, likeCount: response.likeCount))
     }
     
     func displayedItems(posts: [Post]) -> [FeedModels.DisplayedItem] {
@@ -69,9 +80,9 @@ class FeedPresenter: FeedPresentationLogic {
     func displayedItem(post: Post) -> FeedModels.DisplayedItem {
         let item = FeedModels.DisplayedItem(id: post.id)
         item.userImageUrl = post.user?.imageUrl
-        item.userImagePlaceholder = ""
+        item.userImagePlaceholder = FeedStyle.shared.cellViewModel.userPlaceholderImage
         item.postImageUrl = post.imageUrl
-        item.postImagePlaceholder = ""
+        item.postImagePlaceholder = FeedStyle.shared.cellViewModel.postPlaceholderImage
         item.username = post.user?.username
         item.caption = post.caption
         item.likeCount = post.likeCount
