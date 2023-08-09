@@ -30,9 +30,17 @@ class FeedStyle {
     }
     
     struct CellViewModel {
-        var heartImage = "heart"
+        var defaultHeartImage = "heart"
+        var likedHeartImage = "heart.fill"
+        
         var commentImage = "bubble.right"
         var shareImage = "paperplane"
+        
+        var defaultLikeColor = ApplicationStyle.colors.black()
+        var likedColor = ApplicationStyle.colors.red()
+        
+        var userPlaceholderImage = "person.crop.circle"
+        var postPlaceholderImage = "photo"
     }
     
     struct ProgressViewModel {

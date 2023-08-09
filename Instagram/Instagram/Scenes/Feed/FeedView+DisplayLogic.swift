@@ -19,7 +19,9 @@ protocol FeedDisplayLogic: AnyObject {
     func displayError(viewModel: FeedModels.ErrorPresentation.ViewModel)
     func displayRemoveError()
     
-    func displaySuccessDidLike(viewModel: FeedModels.Like.ViewModel)
+    func displayLikeLoadingState(viewModel: FeedModels.ItemLoadingState.ViewModel)
+    func displaySuccessDidSaveLike(viewModel: FeedModels.Like.ViewModel)
+    func displaySuccessDidRemoveLike(viewModel: FeedModels.Like.ViewModel)
 }
 
 extension FeedView {
@@ -77,13 +79,29 @@ extension FeedView {
             }
         }
         
-        func displaySuccessDidLike(viewModel: FeedModels.Like.ViewModel) {
+        func displayLikeLoadingState(viewModel: FeedModels.ItemLoadingState.ViewModel) {
             DispatchQueue.main.async {
-                viewModel.item.likeCount = viewModel.likeCount
-//                if let item = self.displayedItem(id: viewModel.item) {
-////                    self.objectWillChange.send()
-//                    item.likeCount = viewModel.likeCount
-//                }
+                if let item = self.displayedItem(id: viewModel.id) {
+                    item.isUpdatingLikeState = viewModel.isLoading
+                }
+            }
+        }
+        
+        func displaySuccessDidSaveLike(viewModel: FeedModels.Like.ViewModel) {
+            DispatchQueue.main.async {
+                if let item = self.displayedItem(id: viewModel.id) {
+                    item.isLiked = true
+                    item.likeCount = viewModel.likeCount
+                }
+            }
+        }
+        
+        func displaySuccessDidRemoveLike(viewModel: FeedModels.Like.ViewModel) {
+            DispatchQueue.main.async {
+                if let item = self.displayedItem(id: viewModel.id) {
+                    item.isLiked = false
+                    item.likeCount = viewModel.likeCount
+                }
             }
         }
         

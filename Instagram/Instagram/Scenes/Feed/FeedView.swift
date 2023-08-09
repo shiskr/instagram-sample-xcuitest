@@ -86,7 +86,7 @@ struct FeedView: View {
 
 extension FeedView: FeedCellDelegate {
     func feedCellDidTouchLike(cell: FeedCell?, item: FeedModels.DisplayedItem) {
-        self.interactor?.shouldLike(request: FeedModels.Like.Request(item: item))
+        self.interactor?.shouldHandleLikeState(request: FeedModels.Like.Request(id: item.id))
     }
     
     func feedCellDidTouchComment(cell: FeedCell?, item: FeedModels.DisplayedItem) {

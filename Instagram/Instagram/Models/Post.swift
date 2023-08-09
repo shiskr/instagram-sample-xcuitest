@@ -14,14 +14,16 @@ class Post: Identifiable, Codable {
     var likeCount: Int
     var imageUrl: String?
     var user: User?
+    var like: Like?
     
     var createdAt: Date
     
-    init(id: String, caption: String, likeCount: Int, imageUrl: String? = nil, user: User? = nil, createdAt: Date) {
+    init(id: String, caption: String, likeCount: Int, imageUrl: String? = nil, like: Like? = nil, user: User? = nil, createdAt: Date) {
         self.id = id
         self.caption = caption
         self.likeCount = likeCount
         self.imageUrl = imageUrl
+        self.like = like
         self.user = user
         self.createdAt = createdAt
     }

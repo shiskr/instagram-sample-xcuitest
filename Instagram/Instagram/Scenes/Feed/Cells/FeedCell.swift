@@ -14,7 +14,7 @@ protocol FeedCellDelegate {
 }
 
 struct FeedCell: View {
-    var item: FeedModels.DisplayedItem
+    @ObservedObject var item: FeedModels.DisplayedItem
     var delegate: FeedCellDelegate?
     
     var body: some View {
@@ -51,7 +51,8 @@ struct FeedCell: View {
             .frame(width: ApplicationConstraints.constant.x40.rawValue, height: ApplicationConstraints.constant.x40.rawValue)
             .clipShape(Circle())
         } else if let placeholder = item.userImagePlaceholder {
-            Image(placeholder)
+            Image(systemName: placeholder)
+                .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaledToFill()
                 .frame(width: ApplicationConstraints.constant.x40.rawValue, height: ApplicationConstraints.constant.x40.rawValue)
@@ -65,27 +66,29 @@ struct FeedCell: View {
     }
     
     @ViewBuilder func setupPostImage() -> some View {
-        if let urlString = item.userImageUrl, let url = URL(string: urlString) {
-            AsyncImage(url: url, content: { image in
-                image.resizable()
-                    .aspectRatio(contentMode: .fit)
-            }, placeholder: {
-                ProgressView()
-            })
-            .scaledToFill()
-            .frame(height: ApplicationConstraints.constant.x100.rawValue * ApplicationConstraints.constant.x4.rawValue)
-            .clipShape(Rectangle())
-            .padding(.top, ApplicationConstraints.constant.x4.rawValue)
-        } else if let placeholder = item.postImagePlaceholder {
-            Image(placeholder)
-                .aspectRatio(contentMode: .fit)
+        Group {
+            if let urlString = item.postImageUrl, let url = URL(string: urlString) {
+                AsyncImage(url: url, content: { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                }, placeholder: {
+                    ProgressView()
+                })
                 .scaledToFill()
-                .frame(height: ApplicationConstraints.constant.x100.rawValue * ApplicationConstraints.constant.x4.rawValue)
-                .clipShape(Rectangle())
-                .padding(.top, ApplicationConstraints.constant.x4.rawValue)
-        } else {
-            EmptyView()
+            } else if let placeholder = item.postImagePlaceholder {
+                Image(systemName: placeholder)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame( height: ApplicationConstraints.constant.x100.rawValue)
+            } else {
+                EmptyView()
+            }
         }
+        .frame(height: ApplicationConstraints.constant.x100.rawValue * ApplicationConstraints.constant.x4.rawValue)
+        .clipShape(Rectangle())
+        .padding(.top, ApplicationConstraints.constant.x4.rawValue)
+        
+        
     }
     
     @ViewBuilder func setupButtons() -> some View {
@@ -106,15 +109,22 @@ struct FeedCell: View {
             .fontWeight(.semibold)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, ApplicationConstraints.constant.x8.rawValue)
-            .padding(.top, ApplicationConstraints.constant.x1.rawValue)
+            .padding(.top, ApplicationConstraints.constant.x4.rawValue)
     }
     
     @ViewBuilder func setupLikeButton() -> some View {
+        let systemName = self.item.isLiked == true ? FeedStyle.shared.cellViewModel.likedHeartImage : FeedStyle.shared.cellViewModel.defaultHeartImage
+        let foregroundColor = self.item.isLiked == true ? FeedStyle.shared.cellViewModel.likedColor : FeedStyle.shared.cellViewModel.defaultLikeColor
         Button {
             self.delegate?.feedCellDidTouchLike(cell: self, item: self.item)
         } label: {
-            Image(systemName: FeedStyle.shared.cellViewModel.heartImage)
-                .imageScale(.medium)
+            if self.item.isUpdatingLikeState {
+                ProgressView()
+            } else {
+                Image(systemName: systemName)
+                    .imageScale(.medium)
+                    .foregroundColor(foregroundColor)
+            }
         }
     }
     
@@ -159,6 +169,6 @@ struct FeedCell: View {
 
 struct FeedCell_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCell(item: FeedModels.DisplayedItem(id: String()))
+        FeedCell(item: FeedModels.DisplayedItem(id: String(), userImagePlaceholder: FeedStyle.shared.cellViewModel.userPlaceholderImage, postImagePlaceholder: FeedStyle.shared.cellViewModel.postPlaceholderImage))
     }
 }

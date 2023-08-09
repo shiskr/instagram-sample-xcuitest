@@ -43,6 +43,7 @@
 		85809CC12A73A5780089B932 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85809CC02A73A5780089B932 /* String+Localized.swift */; };
 		85809CC52A73A6920089B932 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85809CC72A73A6920089B932 /* Localizable.strings */; };
 		8595A0CD2A77EE3B00D73BDD /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8595A0CC2A77EE3B00D73BDD /* ForgotPasswordView.swift */; };
+		85C1051B2A837E5C00436C1D /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C1051A2A837E5C00436C1D /* Like.swift */; };
 		85D509552A7791E50006BCAA /* ApplicationConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D509542A7791E50006BCAA /* ApplicationConstraints.swift */; };
 		85D509572A7792280006BCAA /* ApplicationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D509562A7792280006BCAA /* ApplicationStyle.swift */; };
 		85D509592A7792AF0006BCAA /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D509582A7792AF0006BCAA /* Color+Hex.swift */; };
@@ -108,6 +109,7 @@
 		85809CC02A73A5780089B932 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		85809CC62A73A6920089B932 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8595A0CC2A77EE3B00D73BDD /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		85C1051A2A837E5C00436C1D /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		85D509542A7791E50006BCAA /* ApplicationConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstraints.swift; sourceTree = "<group>"; };
 		85D509562A7792280006BCAA /* ApplicationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationStyle.swift; sourceTree = "<group>"; };
 		85D509582A7792AF0006BCAA /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -157,11 +159,11 @@
 				851F5A682A78DF4D00EF5852 /* FeedInteractor.swift */,
 				851F5A692A78DF4D00EF5852 /* FeedStyle.swift */,
 				851F5A6A2A78DF4D00EF5852 /* FeedLocalization.swift */,
-				851F5A6B2A78DF4D00EF5852 /* FeedView+DisplayLogic.swift */,
 				851F5A6C2A78DF4D00EF5852 /* FeedModels.swift */,
 				851F5A6E2A78DF4D00EF5852 /* FeedWorker.swift */,
 				851F5A702A78DF4D00EF5852 /* FeedRouter.swift */,
 				851F5A7B2A78DF9800EF5852 /* FeedView.swift */,
+				851F5A6B2A78DF4D00EF5852 /* FeedView+DisplayLogic.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -279,6 +281,7 @@
 				85809CB62A7280410089B932 /* UserToken.swift */,
 				851F5A802A78E2FA00EF5852 /* User.swift */,
 				851F5A822A78E39900EF5852 /* Post.swift */,
+				85C1051A2A837E5C00436C1D /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				851F5A742A78DF4D00EF5852 /* FeedLocalization.swift in Sources */,
 				851F5A832A78E39900EF5852 /* Post.swift in Sources */,
 				85809C952A6FAC160089B932 /* LoadingButton.swift in Sources */,
+				85C1051B2A837E5C00436C1D /* Like.swift in Sources */,
 				8595A0CD2A77EE3B00D73BDD /* ForgotPasswordView.swift in Sources */,
 				85809C932A6F9E0E0089B932 /* LoginView.swift in Sources */,
 				85809CAA2A6FE75C0089B932 /* LoginModels.swift in Sources */,
