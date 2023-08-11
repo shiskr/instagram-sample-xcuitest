@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Instagram
+
+  Created by Cristian Crasneanu on 28.07.2023.
+  
+*/
+
+"Login.scene.account.placeholder" = "Email or username";
+"Login.scene.password.placeholder" = "Password";
+"Login.scene.account.error" = "Email or username must be at least 1 character";
+"Login.scene.password.error" = "Password must be at least 6 characters";
+"Login.scene.login.title" = "Login";
+"Login.scene.forgot.password.title" = "Forgot password";
+"Login.scene.wrong.credentials.error" = "Wrong username or password";
+
+"Feed.scene.title" = "Feed";
+"Feed.scene.no.more.items.text" = "No more items";
+"Feed.scene.error.text" = "An error occurred while fetching posts. Tap here to reload ↺";
