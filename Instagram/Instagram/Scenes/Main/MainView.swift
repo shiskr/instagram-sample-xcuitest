@@ -19,22 +19,27 @@ struct MainView: View {
             FeedView()
                 .tabItem {
                     Image(systemName: "house")
+                        .accessibility(identifier: "feed")
                 }
-            Text("Seach")
+            Text("Search")
                 .tabItem {
                     Image(systemName: "magnifyingglass")
+                        .accessibility(identifier: "search")
                 }
             Text("Upload Post")
                 .tabItem {
                     Image(systemName: "plus.square")
+                        .accessibility(identifier: "uploadPost")
                 }
             Text("Notifications")
                 .tabItem {
                     Image(systemName: "heart")
+                        .accessibility(identifier: "notifications")
                 }
             Text("Profile")
                 .tabItem {
                     Image(systemName: "person")
+                        .accessibility(identifier: "profile")
                 }
         }
         .tint(ApplicationStyle.colors.black())

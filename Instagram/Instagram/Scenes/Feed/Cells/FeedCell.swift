@@ -37,6 +37,7 @@ struct FeedCell: View {
             Spacer()
         }
         .padding(.leading, ApplicationConstraints.constant.x8.rawValue)
+        .accessibility(identifier: "user1")
     }
     
     @ViewBuilder func setupUserImage() -> some View {
@@ -50,12 +51,14 @@ struct FeedCell: View {
             .scaledToFill()
             .frame(width: ApplicationConstraints.constant.x40.rawValue, height: ApplicationConstraints.constant.x40.rawValue)
             .clipShape(Circle())
+            .accessibility(identifier: "userImage1")
         } else if let placeholder = item.userImagePlaceholder {
             Image(systemName: placeholder)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .scaledToFill()
                 .frame(width: ApplicationConstraints.constant.x40.rawValue, height: ApplicationConstraints.constant.x40.rawValue)
+                .accessibility(identifier: "userImage1")
         } else {
             EmptyView()
         }
@@ -110,6 +113,7 @@ struct FeedCell: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, ApplicationConstraints.constant.x8.rawValue)
             .padding(.top, ApplicationConstraints.constant.x4.rawValue)
+            .accessibility(identifier: "likes")
     }
     
     @ViewBuilder func setupLikeButton() -> some View {
@@ -124,6 +128,7 @@ struct FeedCell: View {
                 Image(systemName: systemName)
                     .imageScale(.medium)
                     .foregroundColor(foregroundColor)
+                    .accessibility(identifier: "likeBtn")
             }
         }
     }
@@ -134,6 +139,7 @@ struct FeedCell: View {
         } label: {
             Image(systemName: FeedStyle.shared.cellViewModel.commentImage)
                 .imageScale(.medium)
+                .accessibility(identifier: "commentBtn")
         }
     }
     
@@ -143,6 +149,7 @@ struct FeedCell: View {
         } label: {
             Image(systemName: FeedStyle.shared.cellViewModel.shareImage)
                 .imageScale(.medium)
+                .accessibility(identifier: "shareBtn")
         }
     }
     
@@ -155,6 +162,7 @@ struct FeedCell: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.leading, ApplicationConstraints.constant.x8.rawValue)
         .padding(.top, ApplicationConstraints.constant.x2.rawValue)
+        .accessibility(identifier: "postCaption")
     }
     
     @ViewBuilder func setupTimeAgo() -> some View {
@@ -164,6 +172,7 @@ struct FeedCell: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, ApplicationConstraints.constant.x8.rawValue)
             .padding(.top, ApplicationConstraints.constant.x2.rawValue)
+            .accessibility(identifier: "postTime")
     }
 }
 

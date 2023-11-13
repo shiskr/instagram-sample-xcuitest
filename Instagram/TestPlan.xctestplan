@@ -1,0 +1,26 @@
+{
+  "configurations" : [
+    {
+      "id" : "F8129E05-BFD2-45B2-9771-A11B7054B9A0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
+    "testTimeoutsEnabled" : true,
+    "userAttachmentLifetime" : "keepAlways"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Instagram.xcodeproj",
+        "identifier" : "5678D1F02AC4A142001F94B3",
+        "name" : "InstagramUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

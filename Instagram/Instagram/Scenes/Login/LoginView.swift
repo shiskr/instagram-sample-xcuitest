@@ -57,6 +57,7 @@ struct LoginView: View {
             .resizable()
             .scaledToFit()
             .frame(width: 200)
+            .accessibility(identifier: "instaLogo")
     }
     
     @ViewBuilder func setupAccountTextField() -> some View {
@@ -68,6 +69,7 @@ struct LoginView: View {
             self.focusedField = .password
         })
         .focused(self.$focusedField, equals: .email)
+        .accessibility(identifier: "userInfo")
     }
     
     @ViewBuilder func setupPasswordTextField() -> some View {
@@ -79,6 +81,7 @@ struct LoginView: View {
             self.focusedField = nil
         })
         .focused(self.$focusedField, equals: .password)
+        .accessibility(identifier: "password")
     }
     
     @ViewBuilder func setupForgotPasswordButton() -> some View {
@@ -87,6 +90,7 @@ struct LoginView: View {
             self.displayState.shouldNavigateToForgotPassword = true
         }
         .frame(height: ApplicationConstraints.constant.x40.rawValue)
+        .accessibility(identifier: "forgetPass")
     }
     
     @ViewBuilder func setupLoginButton() -> some View {
@@ -95,6 +99,7 @@ struct LoginView: View {
             self.interactor?.shouldLogin()
         }
         .frame(height: ApplicationConstraints.constant.x40.rawValue)
+        .accessibility(identifier: "login")
     }
     
     private func dismissKeyboard() {
