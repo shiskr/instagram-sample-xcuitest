@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "F8129E05-BFD2-45B2-9771-A11B7054B9A0",
+      "id" : "6B286B2C-CE58-40AA-9483-078BD8EB570F",
       "name" : "Configuration 1",
       "options" : {
 
@@ -9,12 +9,14 @@
     }
   ],
   "defaultOptions" : {
-    "areLocalizationScreenshotsEnabled" : true,
-    "testTimeoutsEnabled" : true,
-    "userAttachmentLifetime" : "keepAlways"
+    "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "BaseTest"
+      ],
       "target" : {
         "containerPath" : "container:Instagram.xcodeproj",
         "identifier" : "5678D1F02AC4A142001F94B3",

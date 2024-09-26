@@ -22,7 +22,6 @@
 		564D26682AD88601008A1B99 /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D26672AD88601008A1B99 /* Environments.swift */; };
 		564D266B2AD8860A008A1B99 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D26692AD8860A008A1B99 /* Endpoints.swift */; };
 		564D266C2AD8860A008A1B99 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D266A2AD8860A008A1B99 /* APIManager.swift */; };
-		56BCB0892AEFA12A0035F164 /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 56BCB0882AEFA12A0035F164 /* TestPlan.xctestplan */; };
 		8515C63F2A7A560300BA8763 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8515C63E2A7A560300BA8763 /* Date+TimeAgo.swift */; };
 		851F5A652A78DCD400EF5852 /* CurrentUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F5A642A78DCD400EF5852 /* CurrentUserState.swift */; };
 		851F5A712A78DF4D00EF5852 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851F5A672A78DF4D00EF5852 /* FeedPresenter.swift */; };
@@ -92,7 +91,7 @@
 		564D26692AD8860A008A1B99 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		564D266A2AD8860A008A1B99 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		5678D1F12AC4A142001F94B3 /* InstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56BCB0882AEFA12A0035F164 /* TestPlan.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		568E8ABB2B06A0D3001B8970 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		56D505C52AD03A3500FD1486 /* Elements.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Elements.md; sourceTree = "<group>"; };
 		8515C63E2A7A560300BA8763 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		851F5A642A78DCD400EF5852 /* CurrentUserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserState.swift; sourceTree = "<group>"; };
@@ -162,7 +161,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		564D26422AD8859B008A1B99 /* PageObjects */ = {
+		564D26422AD8859B008A1B99 /* ScreenObjects */ = {
 			isa = PBXGroup;
 			children = (
 				564D264D2AD885E4008A1B99 /* BaseScreen.swift */,
@@ -174,7 +173,7 @@
 				564D264F2AD885E4008A1B99 /* SearchScreen.swift */,
 				564D264C2AD885E4008A1B99 /* UploadPostScreen.swift */,
 			);
-			path = PageObjects;
+			path = ScreenObjects;
 			sourceTree = "<group>";
 		};
 		564D26432AD885A5008A1B99 /* Resources */ = {
@@ -219,7 +218,7 @@
 				564D26452AD885B3008A1B99 /* Config */,
 				564D26442AD885AD008A1B99 /* Tests */,
 				564D26432AD885A5008A1B99 /* Resources */,
-				564D26422AD8859B008A1B99 /* PageObjects */,
+				564D26422AD8859B008A1B99 /* ScreenObjects */,
 				564D26412AD8857A008A1B99 /* Utilities */,
 				56D505C52AD03A3500FD1486 /* Elements.md */,
 			);
@@ -262,7 +261,7 @@
 		85809C5C2A6F9A3D0089B932 = {
 			isa = PBXGroup;
 			children = (
-				56BCB0882AEFA12A0035F164 /* TestPlan.xctestplan */,
+				568E8ABB2B06A0D3001B8970 /* TestPlan.xctestplan */,
 				85809C672A6F9A3D0089B932 /* Instagram */,
 				5678D1F22AC4A142001F94B3 /* InstagramUITests */,
 				85809C662A6F9A3D0089B932 /* Products */,
@@ -537,7 +536,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56BCB0892AEFA12A0035F164 /* TestPlan.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +718,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -781,6 +780,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;

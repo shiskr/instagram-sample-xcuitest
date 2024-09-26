@@ -19,6 +19,8 @@ class LoginUITests: BaseTest{
 //        attachment.name = "Launch Screen"
 //        attachment.lifetime = .keepAlways
 //        add(attachment)
+//        let existence = button.waitForExistence(timeout: 5)
+//        XCTAssertTrue(existence)
         
         loginScreen.enterUsername(username: "test")
         loginScreen.enterPassword(password: "test@123")
